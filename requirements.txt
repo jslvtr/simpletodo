@@ -15,3 +15,5 @@ mock
 # ----------------------
 gevent
 gunicorn
+pymongo
+requests==2.5.1
