@@ -8,6 +8,7 @@ This file creates your application.
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify, g
 import jinja2
+import os
 import datetime
 from src.app import Utils
 from src.db.models import User, Group, Invite
@@ -15,6 +16,7 @@ from src.db.database import Database
 
 
 app = Flask(__name__)
+mongodb_uri = os.environ.get('MONGOLAB_URI')
 
 ###
 # Routing for your application.
@@ -27,7 +29,7 @@ def log(to_write):
 
 @app.before_request
 def init_db():
-    g.database = Database('mongodb://admin:admin@ds063879.mongolab.com:63879/heroku_app34205970')
+    g.database = Database(mongodb_uri)
 
 
 @app.route('/users/register', methods=['POST'])

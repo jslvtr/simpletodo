@@ -12,7 +12,7 @@ class ModelsTest(unittest.TestCase):
     def setUp(self):
         self.app_context = app.app_context()
         with self.app_context:
-            g.database = Database('mongodb://admin:admin@ds063879.mongolab.com:63879/heroku_app34205970')
+            g.database = Database(app.mongolab_uri)
 
     def tearDown(self):
         with self.app_context:
