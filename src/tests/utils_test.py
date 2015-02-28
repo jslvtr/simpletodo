@@ -1,5 +1,3 @@
-from src.db.database import Database
-
 __author__ = 'jslvtr'
 
 import unittest
