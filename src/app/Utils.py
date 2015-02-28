@@ -1,8 +1,13 @@
 from functools import wraps
+import re
 from flask import request, g, abort
 from src.db.models import User
 
 __author__ = 'jslvtr'
+
+def email_is_valid(email):
+    address = re.compile('^[\w\d.+-]+@([\w\d.]+\.)+[\w]+$')
+    return True if address.match(email) else False
 
 
 def login_required(f):

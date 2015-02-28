@@ -15,11 +15,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-def email_is_valid(email):
-    address = re.compile('^[\w\d.+-]+@([\w\d.]+\.)+[\w]+$')
-    return True if address.match(email) else False
-
-
 class ModelBase(object):
     collection = None
 

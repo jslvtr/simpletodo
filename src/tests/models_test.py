@@ -1,7 +1,7 @@
 __author__ = 'jslvtr'
 
 import unittest
-from src.db.models import email_is_valid, User, Group, Invite
+from src.db.models import User, Group, Invite
 from src.app.app import app
 from flask import g
 from src.db.database import Database
@@ -17,12 +17,6 @@ class ModelsTest(unittest.TestCase):
     def tearDown(self):
         with self.app_context:
             g.database = None
-
-    def test_email_is_valid(self):
-        self.assertTrue(email_is_valid('test123@gmail.com'))
-        self.assertFalse(email_is_valid('test123'))
-        self.assertFalse(email_is_valid('test123@gmail'))
-        self.assertFalse(email_is_valid('test123@gmail.'))
 
     def test_create_user(self):
         user = self._sample_user()
